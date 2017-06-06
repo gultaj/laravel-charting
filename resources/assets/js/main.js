@@ -17,7 +17,7 @@ var data = {
 			backgroundColor: [
                 'rgba(255, 132, 132, 1)',
                 'rgba(256, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)',
+                'rgba(255, 206, 186, 1)',
             ],
 		}
 	]
@@ -27,5 +27,14 @@ var context = document.querySelector('#graph').getContext('2d');
 
 new Chart(context, {
 	type: 'bar',
-	data: data
+	data: data,
+	options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero:true
+                }
+            }]
+        }
+    }
 });

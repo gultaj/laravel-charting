@@ -5,6 +5,14 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
+        <meta name="csrf-token" content="{{ csrf_token() }}">
+        <!-- Scripts -->
+        <script>
+            window.App = {!! json_encode([
+                'csrfToken' => csrf_token(),
+            ]) !!};
+        </script>
+
         <title>Laravel</title>
 
         <!-- Fonts -->
@@ -12,10 +20,11 @@
 
     </head>
     <body>
-        <div class="container">
-            <canvas id="graph" width="600" height="400"></canvas>
+        <div id="app" style="width:600px; height:800px">
+            <graph :labels="['January', 'February', 'March']" :values="[30, 12, 50]"></graph>
+            <graph :labels="['April', 'May', 'June']" :values="[300, 120, 500]"></graph>
         </div>
 
-        <script src="{{ mix('js/main.js') }}"></script>
+        <script src="{{ mix('js/app.js') }}"></script>
     </body>
 </html>
